@@ -50,28 +50,23 @@
     function cono(creacion){  //Cono
 
 
-        var altura;
+        var altura=1;
         var diametro =2;
         var lados = 10;
-            if (creacion==false){
-            altura =1;
-               }
-                else {
-          altura =3;
-           }
+    
 
         var coneGeometry = new THREE.ConeGeometry(diametro,altura,lados);
         var basicMaterial = new THREE.MeshLambertMaterial({color: 0xEAEFF2});
         var cone = new THREE.Mesh(coneGeometry, basicMaterial);
 
         scene.add(cone);
-        cone.rotation.set(Math.PI/2, 0, 0);
+        cone.rotation.set(Math.PI/2, 4.1, 0);
         cone.position.z=altura/2;
          camera.lookAt(0,0,0);
 
 }
 
-    cono(true);
+    cono();
 
     
     var light = new THREE.PointLight(0xFFFFFF);
