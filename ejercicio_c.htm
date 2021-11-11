@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>MDN Games: Three.js demo</title>
+    <style>
+        body { margin: 0; padding: 0; font-size: 0; }
+        canvas { width: 100%; height: 100%; } // Tamaño del canvas
+    </style>
+</head>
+<body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script> // Librería three.js
+<script>
+    var WIDTH = window.innerWidth; // Variable del tamaño de todo el ancho de la ventana
+    var HEIGHT = window.innerHeight; // Variable del tamaño de todo el alto de la pantalla
+
+    var renderer = new THREE.WebGLRenderer({antialias:true}); // Se declara la variable renderizar (Con antialiasing activado)
+    renderer.setSize(WIDTH, HEIGHT); // La imagen a renderizar será del tamaño de la ventana
+    renderer.setClearColor(0xDDDDDD, 1); // Se declara la textura de la ventana
+    document.body.appendChild(renderer.domElement); // Renderizar
+
+    var scene = new THREE.Scene(); // Se declara una nueva escena 
+
+    var camera = new THREE.PerspectiveCamera(30, window.innerWidth / window.innerHeight, 0.1, 100);
+    camera.position.z = 10;
+    camera.position.y = 10;
+    camera.position.x = -10;
+    scene.add(camera); 
+   
+ 
+    const ejesXYZ = new THREE.AxesHelper( 100 );
+    scene.add( ejesXYZ );
+
+    function cono(){ 
+    //CONO SIN TRANSFORMAR:
+        var altura
+        altura =1;
+        var diametro =2;
+        var lados = 10;
+        var coneGeometry = new THREE.ConeGeometry(diametro,altura,lados);
+        var basicMaterial = new THREE.MeshLambertMaterial({color: 0xEAEFF2}); // Se  declara la textura del cubo
+        var cone = new THREE.Mesh(coneGeometry, basicMaterial); //Se declara el nuevo cubo con la geometría y el material
+        scene.add(cone);
+        cone.rotation.set(Math.PI/2, 0, 0);
+        cone.position.z=altura/2;
+         camera.lookAt(0,0,0);
+
+
+
+}
+    //TRANSFORMACIÓN DEL CONO
+    cono();
+
+    
+    var light = new THREE.PointLight(0xFFFFFF);
+    light.position.set(-10,15,50);
+    scene.add(light);
+    function render() { // Función para renderizar
+        requestAnimationFrame(render); // Se llama al render
+        renderer.render(scene, camera); // Se renderiza la escena y la camara
+    }
+    render();
+</script>
+</body>
+</html>
