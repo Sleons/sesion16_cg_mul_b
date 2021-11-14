@@ -47,7 +47,7 @@
     const ejesXYZ = new THREE.AxesHelper( 100);
     scene.add( ejesXYZ );
 
-    function cono(creacion){  //Cono
+    function cono(){  //Se crea el cono con sus parametros
 
 
         var altura=1;
@@ -59,10 +59,11 @@
         var basicMaterial = new THREE.MeshLambertMaterial({color: 0xEAEFF2});
         var cone = new THREE.Mesh(coneGeometry, basicMaterial);
 
+	//Transformación del cono
         scene.add(cone);
-        cone.rotation.set(Math.PI/2, 4.1, 0);
+        cone.rotation.set(Math.PI/2, 4.1, 0); //Se rota 4.1 para que la el vertice del triangulo quede en x como se indica en el ejercicio
         cone.position.z=altura/2;
-         camera.lookAt(0,0,0);
+        camera.lookAt(0,0,0);
 
 }
 
