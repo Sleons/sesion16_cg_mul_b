@@ -18,13 +18,13 @@
 		function init() {
 			//INICIALIZACIÓN DE LA ESCENA
 			scene = new THREE.Scene();
-      scene.background = new THREE.Color( 0xAAAAAA );
+     			scene.background = new THREE.Color( 0xAAAAAA );
 			aspect = window.innerWidth / window.innerHeight;
 			camera = new THREE.PerspectiveCamera( 45, aspect, 0.1, 1000);
 			renderer = new THREE.WebGLRenderer();
 			renderer.setSize( window.innerWidth*0.99, window.innerHeight*0.99 );
 			document.body.appendChild( renderer.domElement );
-            controls = new THREE.OrbitControls( camera, renderer.domElement );
+            		controls = new THREE.OrbitControls( camera, renderer.domElement );
 			
 			//ELEMENTOS DE ESCENA
 			var size = 10;
@@ -33,19 +33,18 @@
 			var origin = new THREE.Vector3( 0, 0, 0 );
 			var x = new THREE.Vector3( 1, 0, 0 );
 			var y = new THREE.Vector3( 0, 1, 0 );
-	  	var z = new THREE.Vector3( 0, 0, 1 );
+	  		var z = new THREE.Vector3( 0, 0, 1 );
 			var color1 = new THREE.Color( 0xFFFFFF );
-	  	var color2 = new THREE.Color( 0x333333 );
-	  	var colorR = new THREE.Color( 0xAA3333 );
-	  	var colorG = new THREE.Color( 0x33AA33 );
-	  	var colorB = new THREE.Color( 0x333366 );
+	  		var color2 = new THREE.Color( 0x333333 );
+	  		var colorR = new THREE.Color( 0xAA3333 );
+	  		var colorG = new THREE.Color( 0x33AA33 );
+	  		var colorB = new THREE.Color( 0x333366 );
 			var colorRd = new THREE.Color( 0xAA6666 );
-	  	var colorGd = new THREE.Color( 0x66AA66 );
-	  	var colorBd = new THREE.Color( 0x6666AA );
-		  
-
-    const ejesXYZ = new THREE.AxesHelper( 100);
-    scene.add( ejesXYZ );
+	  		var colorGd = new THREE.Color( 0x66AA66 );
+	  		var colorBd = new THREE.Color( 0x6666AA );
+		 
+    			const ejesXYZ = new THREE.AxesHelper( 100);
+    			scene.add( ejesXYZ );
 
    function cono(){ 
     //CONO TRANSFORMAR:
@@ -86,41 +85,41 @@
     light.position.set(-5,10,15);
     scene.add(light);
     function render() { // Función para renderizar
-        requestAnimationFrame(render); // Se llama al render
-        renderer.render(scene, camera); // Se renderiza la escena y la camara
+    requestAnimationFrame(render); // Se llama al render
+    renderer.render(scene, camera); // Se renderiza la escena y la camara
 
     }
 
-	  	//CREAR LAS GRILLAS PARA EL ESCENARIO
-	  	var axesHelper = new THREE.AxesHelper( size );
-	  	var gridHelperXY = new THREE.GridHelper( size, divisions, color1, color1);
-	  	var gridHelperXZ = new THREE.GridHelper( size, divisions, color2, color2 );
-	  	var gridHelperYZ = new THREE.GridHelper( size, divisions, color2, color2 );
+	//CREAR LAS GRILLAS PARA EL ESCENARIO
+	var axesHelper = new THREE.AxesHelper( size );
+	var gridHelperXY = new THREE.GridHelper( size, divisions, color1, color1);
+	var gridHelperXZ = new THREE.GridHelper( size, divisions, color2, color2 );
+	var gridHelperYZ = new THREE.GridHelper( size, divisions, color2, color2 );
             
-      //ROTARLAS PARA QUE QUEDEN EN EL ESPACIO ADECUADO
-      gridHelperXY.rotateOnWorldAxis ( x, THREE.Math.degToRad(90) );
-      gridHelperXZ.rotateOnWorldAxis ( y, THREE.Math.degToRad(90) );
-      gridHelperYZ.rotateOnWorldAxis ( z, THREE.Math.degToRad(90) );
+     	 //ROTARLAS PARA QUE QUEDEN EN EL ESPACIO ADECUADO
+     	 gridHelperXY.rotateOnWorldAxis ( x, THREE.Math.degToRad(90) );
+      	gridHelperXZ.rotateOnWorldAxis ( y, THREE.Math.degToRad(90) );
+     	 gridHelperYZ.rotateOnWorldAxis ( z, THREE.Math.degToRad(90) );
       
-      //CREAR LAS FLECHAS QUE INDICAN LOS EJES DE COORDENADAS 3D
-      var arrowX = new THREE.ArrowHelper( x, origin, arrowSize, colorR );
-      var arrowY = new THREE.ArrowHelper( y, origin, arrowSize, colorG );
-      var arrowZ = new THREE.ArrowHelper( z, origin, arrowSize, colorB );
+     	 //CREAR LAS FLECHAS QUE INDICAN LOS EJES DE COORDENADAS 3D
+      	var arrowX = new THREE.ArrowHelper( x, origin, arrowSize, colorR );
+      	var arrowY = new THREE.ArrowHelper( y, origin, arrowSize, colorG );
+      	var arrowZ = new THREE.ArrowHelper( z, origin, arrowSize, colorB );
       
 
                
-	  	//AGREGAR A LA ESCENA
-      scene.add( gridHelperXZ );
-	  	scene.add( arrowX );	
-	  	scene.add( arrowY );	
-	  	scene.add( arrowZ );
+	//AGREGAR A LA ESCENA
+      	 sene.add( gridHelperXZ );
+	 scene.add( arrowX );	
+	 scene.add( arrowY );	
+	 scene.add( arrowZ );
             
-			//MOVER LA CÁMARA
-			camera.position.x = 0;
-			camera.position.y = 0;	 
-	  	camera.position.z = 20;			
-	  	camera.lookAt( origin );
-		}
+	//MOVER LA CÁMARA
+	camera.position.x = 0;
+	camera.position.y = 0;	 
+	camera.position.z = 20;			
+	camera.lookAt( origin );
+	}
     
     function animate() {
         requestAnimationFrame( animate );
