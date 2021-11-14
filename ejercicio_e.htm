@@ -18,13 +18,13 @@
 		function init() {
 			//INICIALIZACIÓN DE LA ESCENA
 			scene = new THREE.Scene();
-     	    scene.background = new THREE.Color( 0xAAAAAA );
+     	    		scene.background = new THREE.Color( 0xAAAAAA );
 			aspect = window.innerWidth / window.innerHeight;
 			camera = new THREE.PerspectiveCamera( 45, aspect, 0.1, 1000);
 			renderer = new THREE.WebGLRenderer();
 			renderer.setSize( window.innerWidth*0.99, window.innerHeight*0.99 );
 			document.body.appendChild( renderer.domElement );
-            controls = new THREE.OrbitControls( camera, renderer.domElement );
+            		controls = new THREE.OrbitControls( camera, renderer.domElement );
 			
 			//ELEMENTOS DE ESCENA
 			var size = 10;
@@ -44,10 +44,10 @@
 	  		var colorBd = new THREE.Color( 0x6666AA );
 		  
 
-    		const ejesXYZ = new THREE.AxesHelper( 100);
-    		scene.add( ejesXYZ );
+    			const ejesXYZ = new THREE.AxesHelper( 100);
+    			scene.add( ejesXYZ );
 
-    		function Esfera(){  //Esta es la función que creará y transformará la esfera
+    function Esfera(){  //Esta es la función que creará y transformará la esfera
 
     			//Se crea la esfera como indica en el ejercicio.
     			//Esfera sin transformar
@@ -71,22 +71,23 @@
   			}
 
 
-   		Esfera(); //Se llama la función que realiza la esfera
+   	Esfera(); //Se llama la función que realiza la esfera
 
     
-   		var light = new THREE.PointLight(0xFFFFFF);
+   	var light = new THREE.PointLight(0xFFFFFF);
     	light.position.set(-5,10,15);
     	scene.add(light);
+			
     	function render() { // Función para renderizar
         requestAnimationFrame(render); // Se llama al render
         renderer.render(scene, camera); // Se renderiza la escena y la camara
 
     }
-	  	//CREAR LAS GRILLAS PARA EL ESCENARIO
-	  	var axesHelper = new THREE.AxesHelper( size );
-	  	var gridHelperXY = new THREE.GridHelper( size, divisions, color1, color1);
-	  	var gridHelperXZ = new THREE.GridHelper( size, divisions, color2, color2 );
-	  	var gridHelperYZ = new THREE.GridHelper( size, divisions, color2, color2 );
+	 //CREAR LAS GRILLAS PARA EL ESCENARIO
+	 var axesHelper = new THREE.AxesHelper( size );
+	 var gridHelperXY = new THREE.GridHelper( size, divisions, color1, color1);
+	 var gridHelperXZ = new THREE.GridHelper( size, divisions, color2, color2 );
+	 var gridHelperYZ = new THREE.GridHelper( size, divisions, color2, color2 );
             
       	//ROTARLAS PARA QUE QUEDEN EN EL ESPACIO ADECUADO
       	gridHelperXY.rotateOnWorldAxis ( x, THREE.Math.degToRad(90) );
@@ -98,18 +99,18 @@
       	var arrowY = new THREE.ArrowHelper( y, origin, arrowSize, colorG );
       	var arrowZ = new THREE.ArrowHelper( z, origin, arrowSize, colorB );
            
-	  	//AGREGAR A LA ESCENA
+	//AGREGAR A LA ESCENA
       	scene.add( gridHelperXZ );
-	  	scene.add( arrowX );	
-	  	scene.add( arrowY );	
-	  	scene.add( arrowZ );
+	scene.add( arrowX );	
+	scene.add( arrowY );	
+	scene.add( arrowZ );
             
-		//MOVER LA CÁMARA
-		camera.position.x = 0;
-		camera.position.y = 0;	 
-	  	camera.position.z = 20;			
-	  	camera.lookAt( origin );
-		}
+	//MOVER LA CÁMARA
+	camera.position.x = 0;
+	camera.position.y = 0;	 
+	camera.position.z = 20;			
+	camera.lookAt( origin );
+	}
     
     function animate() {
         requestAnimationFrame( animate );
